@@ -1,0 +1,2 @@
+ALTER TABLE orders
+ADD comentarios VARCHAR(255) NULL;
