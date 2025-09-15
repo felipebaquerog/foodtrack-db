@@ -54,3 +54,6 @@ CREATE TABLE locations (
         FOREIGN KEY (foodtruck_id)
         REFERENCES foodtrucks(foodtruck_id)
 );
+
+ALTER TABLE orders
+ADD comentarios VARCHAR(255) NULL;
