@@ -1,21 +1,47 @@
-# FoodTrack - Base de datos
+# FoodTrack - Base de Datos
+Repositorio para el esquema relacional de FoodTrack, una plataforma para gestionar operaciones de foodtrucks en distintos puntos de la ciudad.
 
-Repositorio para el esquema relacional inicial de **FoodTrack**, una plataforma para gestionar operaciones de foodtrucks en distintos puntos de la ciudad.
+## 🎯 Objetivo
+Diseñar e implementar en Microsoft SQL Server las tablas para:
+- foodtrucks
+- products
+- orders
+- order_items
+- locations
+Cliente utilizado: DBeaver
+Control de versiones: Git/GitHub
 
-## Objetivo
-Diseñar e implementar en **Microsoft SQL Server** las tablas para foodtrucks, productos, pedidos, ubicaciones y detalle de ítems pedidos. Usar **DBeaver** como cliente y versionar el proyecto con **Git / GitHub**.
+## 📂 Estructura del repositorio
+/scripts/          # Scripts SQL del esquema
+/data/             # Archivos CSV de entrada
+README.md          # Descripción general del proyecto
+.gitignore
 
-## Estructura sugerida
-- `/sql/01_create_tables.sql` — creación de tablas y FK
-- `/sql/02_seed_data.sql` — datos de ejemplo
-- `/sql/03_sample_queries.sql` — consultas útiles y tests
-- `README.md` — descripción del proyecto
-- `.gitignore`
+### Ejemplo de scripts:
+- /scripts/schema.sql → creación de tablas y claves foráneas
+- /scripts/alter_add_comentarios.sql → cambios de evolución en el esquema
 
-## Cómo trabajar
-1. Clonar repo.
-2. Implementar scripts en `/sql`.
-3. Usar ramas (`feature/`, `fix/`) y pull requests para merge a `main`.
+## 🗄️ Modelo relacional
+- foodtrucks → información de cada foodtruck (nombre, ciudad, tipo de cocina).
+- products → productos de cada foodtruck, con precio y stock.
+- orders → pedidos realizados, con fecha, estado y total.
+- order_items → detalle de los pedidos (productos y cantidades).
+- locations → ubicación diaria de los foodtrucks.
+Claves primarias y foráneas establecidas para mantener la integridad referencial.
 
-## Contacto
-Autor: Felipe Baquero — felipebaquereog@gmail.com
+## 🔄 Evolución del esquema
+Cada modificación estructural se versiona con un nuevo commit.
+Ejemplo aplicado:
+
+ALTER TABLE orders
+ADD comentarios VARCHAR(255) NULL;
+
+## 🚀 Cómo usar
+1. Clonar el repositorio: git clone https://github.com/felipebaquerog/foodtrack-db.git
+2. Abrir DBeaver y conectarse a SQL Server.
+3. Ejecutar /scripts/schema.sql para crear las tablas.
+4. (Opcional) Cargar los .csv desde /data/.
+
+## 📌 Autor
+Felipe Baquero
+📧 felipebaquereog@gmail.com
